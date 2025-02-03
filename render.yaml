@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: signupBackend
+    env: node
+    plan: free
+    buildCommand: 'npm install'
+    startCommand: 'node index.js'
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: MONGO_URI
+        fromDatabase:
+          name: your-database-name
+          property: connectionString
